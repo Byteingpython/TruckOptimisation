@@ -6,6 +6,13 @@ public class Connection {
     private String requiredPermit;
     private Node destination;
 
+    public Connection(int weight, String requiredPermit, Node destination) {
+        this.weight = weight;
+        this.requiredPermit = requiredPermit;
+        this.destination = destination;
+    }
+
+
     public Optional<String> getRequiredPermit() {
         return Optional.ofNullable(requiredPermit);
     }
