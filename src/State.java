@@ -1,6 +1,7 @@
 import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class State implements Comparable<State>{
@@ -55,5 +56,22 @@ public class State implements Comparable<State>{
 
     public int getCost() {
         return cost;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this==o) {
+            return true;
+        }
+        if (o==null || getClass()!=o.getClass()) {
+            return false;
+        }
+        State state = (State) o;
+        return permits.equals(state.permits) && node.equals(state.node);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(permits, node);
     }
 }
