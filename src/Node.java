@@ -32,8 +32,6 @@ public class Node {
         Scanner cityScanner = new Scanner(cities);
         cityScanner.useDelimiter(";|\\n");
         cityScanner.nextLine();
-        Node start = null;
-        Node goal = null;
         while (cityScanner.hasNext()) {
             String key = cityScanner.next();
             int h = cityScanner.nextInt();
@@ -43,12 +41,6 @@ public class Node {
             }
             Node node = new Node(availablePermit, h);
             nodes.put(key, node);
-            if (start == null) {
-                start = node;
-            }
-            if (h==0) {
-                goal=node;
-            }
         }
         Scanner connectionScanner = new Scanner(connections);
         connectionScanner.useDelimiter(";|\\n");
@@ -64,7 +56,7 @@ public class Node {
             firstNode.getConnections().add(new Connection(weight, requiredPermit, secondNode));
             secondNode.getConnections().add(new Connection(weight, requiredPermit, firstNode));
         }
-        return new Pair<>(start, goal);
+        return new Pair<>(nodes.get("A"), nodes.get("B"));
     }
 
     public void addConnection(Connection connection) {
