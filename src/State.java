@@ -25,7 +25,7 @@ public class State implements Comparable<State>{
         if (availablePermit.isPresent()&&!permits.contains(availablePermit.get())) {
             List<String> newPermits = new ArrayList<>(permits);
             newPermits.add(availablePermit.get());
-            State withPermit = new State(newPermits, node, this, cost+=10);
+            State withPermit = new State(newPermits, node, this, cost+10);
             states.addAll(withPermit.reachableStates());
         }
         for (Connection connection:node.getConnections()) {
