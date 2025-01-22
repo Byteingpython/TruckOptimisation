@@ -36,7 +36,7 @@ public class Node {
             String key = cityScanner.next();
             int h = cityScanner.nextInt();
             String availablePermit = cityScanner.next();
-            if (availablePermit.equals("NONE")) {
+            if (availablePermit.equals("NONE")||availablePermit.equals("NONE\r")) {
                 availablePermit=null;
             }
             Node node = new Node(availablePermit, h);
@@ -50,7 +50,7 @@ public class Node {
             Node secondNode = nodes.get(connectionScanner.next());
             int weight = connectionScanner.nextInt();
             String requiredPermit = connectionScanner.next();
-            if (requiredPermit.equals("NONE")) {
+            if (requiredPermit.equals("NONE")||requiredPermit.equals("NONE\r")) {
                 requiredPermit=null;
             }
             firstNode.getConnections().add(new Connection(weight, requiredPermit, secondNode));
